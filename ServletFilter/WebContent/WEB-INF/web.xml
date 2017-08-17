@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>ServletFilter</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>com.akhil.servlets.TestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>profile</servlet-name>
+		<servlet-class>com.akhil.servlets.ProfileServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>profile</servlet-name>
+		<url-pattern>/profile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>invalid</servlet-name>
+		<servlet-class>com.akhil.servlets.InvalidLoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>invalid</servlet-name>
+		<url-pattern>/invalid</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- <filter> <filter-name>AuthenticationFilter</filter-name> <filter-class>com.akhil.filter.AuthenticationFilter</filter-class> 
+		</filter> <filter-mapping> <filter-name>AuthenticationFilter</filter-name> 
+		<url-pattern>/profile</url-pattern> </filter-mapping> -->
+
+
+	<!-- <filter> <filter-name>ReponseOnlyFilter</filter-name> <filter-class>com.akhil.filter.ReponseOnlyFilter</filter-class> 
+		</filter> <filter-mapping> <filter-name>ReponseOnlyFilter</filter-name> <url-pattern>/profile</url-pattern> 
+		</filter-mapping> -->
+
+	<filter>
+		<filter-name>ResponseTimeFilter</filter-name>
+		<filter-class>com.akhil.filter.ResponseTimeFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ResponseTimeFilter</filter-name>
+		<url-pattern>/profile</url-pattern>
+	</filter-mapping>
+
+</web-app>
